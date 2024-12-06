@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="asset/bootstrap.min.css">
+    <link rel="stylesheet" href="asset/all.min.css">
+</head>
+<style>
+
+    ::-webkit-scrollbar{
+        display: none;
+    }
+   body{
+    background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+   }
+
+   .light-mode {
+    background: linear-gradient(145deg, #f5f5f5, #e0e0e0);
+    color: #333333; /* Text color for light mode */
+}
+
+   .profile-card img{
+    width: 100px;
+    height: 100px;
+   }
+
+   .profile-card{
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 20px;
+   }
+
+   .nav-link{
+    padding: 8px 30px;
+    margin: 0 10px;
+    color: #ffffff;
+    transition:all 0.3s ease;
+    border-radius: 20px; 
+    
+   }
+
+   .ul .active{
+    background: rgba(143, 137, 137, 0.5);
+    border: 1px solid grey;
+   }
+
+   .div{
+    background: rgba(255, 255, 255, 0.1);
+    width: 350px;
+    height: 50px;
+    border-radius: 50px;
+    border: 1px solid grey;
+   }
+
+   .marquee{
+    color: #aaa;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+   margin-left: 50px;
+   margin-right: 50px;
+   padding: 5px;
+   border-radius: 20px;
+   border: 1px solid grey;
+   text-align: center;
+   }
+
+   .marquee span{
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 10s linear infinite;
+   }
+
+   @keyframes marquee{
+    0%{ transform: translateX(100%);}
+    100%{transform: translateX(-100%);}
+   }
+
+   .resume-btn{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+   }
+
+   .resume-btn:hover{
+    background: rgba(255, 255, 255, 0.1);
+   }
+
+   .resume-btn i{
+    font-size: 1.5rem;
+   }
+
+   /*.toggle-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 210px;
+    height: 60px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid transparent;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5), inset 0 2px 5px rgba(255, 255, 255, 0.2);
+    background-clip: padding-box;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+   }
+
+   .toggle-btn:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 3px solid rgba(0, 212, 255, 0.5);
+    animation: pulse 1.5s infinite;
+   }
+
+   .toggle-btn .fas{
+    font-size: 180px;
+    color: #fff;
+    z-index: 1;
+   }
+
+   .toggle-btn:hover{
+    background: rgba(0, 212, 255, 0.1);
+   } 
+
+   .toggle-container{
+    align-items: center;
+   }
+   @keyframes pulse{
+    0%{
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100%{
+        transform: scale(1.3);
+        opacity: 0;
+    }
+   } */
+
+   .custom-container{
+    position: relative;
+    max-width: 600px;
+    margin: auto;
+    background: transparent;
+    border-radius: 15px;
+    padding: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(100px);
+    height: 200px;
+   }
+
+   .custom-container::before, .custom-container::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0));
+    pointer-events: none;
+    z-index: 2;
+   }
+
+   .custom-container::before{
+    left: 0;
+   }
+
+   .custom-container::after{
+    right: 0;
+    transform: rotate(180deg);
+   }
+   .scrolling-icons{
+   /* overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    animation: scroll 10s linear infinite; */
+    overflow: hidden;
+    position: relative;
+    height: 80px;
+   }
+
+   .scrolling-content{
+    display: flex;
+    animation: scroll 10s linear infinite;
+   }
+
+   .scrolling-icons img{
+    height: 70px;
+    width: 150px;
+    margin: 0 15px;
+    border-radius: 10px;
+    background-color: #222;
+    padding: 10px;
+   }
+
+   @keyframes scroll{
+    0%{
+        transform: translateX(0);
+    }
+
+    100%{
+        transform: translateX(-100%);
+    }
+   }
+
+   .text-section{
+    position: absolute;
+    bottom: 5px;
+   }
+
+   .section-title{
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+    color: #aaa;
+    margin-bottom: 5px;
+   }
+
+   .tech-title{
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+   }
+   
+   .experience-container{
+    padding: 30px;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 10px;
+    background: transparent; 
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+   }
+
+   .section-title{
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #8b949e;
+    text-align: left;
+   }
+
+   .main-title{
+    font-size: 28px;
+    font-weight: bold;
+    color: #f0f6fc;
+    margin-bottom: 20px;
+    text-align: left;
+   }
+
+   .position-title{
+    font-size: 22px;
+    font-weight: bold;
+    color: #f0f6fc;
+    margin: 0;
+    text-align: left;
+   }
+
+   .company{
+    font-size: 16px;
+    font-weight: 400;
+    color: #8b949e;
+    margin-bottom: 20px;
+    text-align: left;
+   }
+
+   .position-strike{
+    text-decoration: line-through;
+    opacity: 0.5;
+   }
+
+   .date{
+    font-size: 14px;
+    color: #8b949e;
+    margin-bottom: 5px;
+    text-align: left;
+   }
+
+   .project-card{
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+   }
+
+   .project-img{
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px;
+   }
+
+   .project-info{
+    padding-top: 15px;
+    text-align: left;
+   }
+
+   .project-title{
+    font-size: 20px;
+    font-weight: bold;
+    color: #f0f6fc;
+    margin-top: 5px;
+   }
+
+   .project-meta{
+    font-size: 14px;
+    color: #8b949e;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+   }
+
+   .tech-tags span{
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px 10px;
+    border-radius: 50px;
+    font-size: 12px;
+    color: #f0f6fc;
+    margin-right: 10px;
+   }
+
+   .tech-tags{
+    margin-top: 10px;
+   }
+.icon-container{
+    font-size: 22px;
+    color: #58a6ff;
+    margin-left: 10px;
+}
+
+@media(min-width: 1024px){
+    .main-content{
+        display: none;
+    }
+
+    .no-access{
+        display: block;
+        text-align: center;
+        margin-top: 20%;
+        font-size: 20px;
+        color: #333;
+    }
+}
+
+@media(max-width:1023px){
+
+    .main-content{
+        display: block;
+    }
+    .no-access{
+        display: none;
+    }
+
+
+}
+</style>
+<body>
+     
+    <div class="main-content">
+                     <!--Navbar-->
+    <nav class="navbar navbar-expand-md custom-nav mb-4 mt-3">
+        <div class="container div">
+            <div class="d-flex w-100 justify-content-center ul">
+                <a href="#" class="nav-link active ">All</a>
+                <a href="#" class="nav-link ">About</a>
+                <a href="#" class="nav-link ">Work</a>
+            </div>
+        </div>
+    </nav>
+
+    <!--Marquee Text-->
+        <div class="marquee mb-3">
+            <span> PERSONAL <b>PORTFOLIO</b> - PERSONAL <b>PORTFOLIO</b> - PERSONAL <b>PORTFOLIO</b> </span>
+        </div>
+
+    <div class="container text-center">
+        <div class="profile-card text-center p-4 mb-4" style="margin: 30px 0;">
+            <img src="img/1.png" alt="" class="rounded-circle mb-3">
+            <h2 class="mb-2" style="font-size: 2rem; font-weight:bold;">Okechukwu Delight</h2>
+            <p style="font-size: 1rem; margin-top:10px;">I am a seasoned software developer and web application specialist with half a decade of experience in crafting innovative digital solutions. 
+                Skilled in website design, web development and blockchain technologies, i have delivered successful projects for clients across various industries...
+            </p>
+        </div>
+
+        
+        <!--Toggle Buttons-->
+        <!-- <div class="d-flex justify-content-center mb-4 toggle-container">
+
+            <div class="toggle-btn me-3" id="toggle-sun">
+                <i class="fas fa-sun" style="font-size: 25px;" id="sun"></i>
+            </div>
+
+            <div class="toggle-btn" id="toggle-moon">
+                <i class="fas fa-moon" style="font-size: 25px;" id="moon"></i>
+            </div>
+        </div> -->
+
+        <!--Resume Section-->
+       <div class="container mt-5 mb-5">
+        <!-- <div class="resume-section p-4 rounded d-flex justify-content-between align-items-center" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2)"> -->
+            <div class="row align-items-center p-4 d-flex justify-content-between" style="background: transparent; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 20px">
+                <div class="col-6">
+                    <P style="color: rgb(98, 93, 93); text-align:left;">
+                        2024 CV
+                    </P>
+                    <h3 style="color: white; font-weight: bold; margin:0; text-align:left;">
+                       RESUME
+                    </h3>
+                    </div>
+
+                    <div class="col-6 text-end">
+                        <a href="asset/Resume_14_03_2024_11_26_37_AM.pdf" download style="text-decoration: none;">
+                        <button class="btn btn-dark rounded-circle me-2" style="width: 50px; height: 50px;">
+                            <i class="fas fa-download" style="color: white; font-size: 1.5rem"></i>
+                        </button>
+                    </a>
+
+                    <a href="asset/Resume_14_03_2024_11_26_37_AM.pdf" target="_blank" style="text-decoration: none;">
+                        <button class="btn btn-dark rounded-circle" style="width: 50px; height: 50px;">
+                            <i class="fas fa-eye" style="color: white; font-size: 1.5rem"></i>
+                        </button>
+                    </a>
+                    </div>
+                </div>
+                </div>
+
+                <!--Map-->
+                <div class="mt-4 mb-3">
+                    <img src="img/map.png" class="img-fluid rounded" alt="" style="width: 100%; height:200px; object-fit: cover;">
+                </div>
+
+                <!--Social-->
+                <div class="mb-5">
+                <div class="row d-flex justify-content-center align-items">
+
+                    <a href="https://github.com/Delightech28">
+                    <div class="col-5" style="background: transparent; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 20px; padding:30px 30px; font-size: 50px;">
+                        <a href="https://github.com/Delightech28" style="color:white;">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    </div>
+                    
+                    <div class="col-5" style="background: transparent; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 20px; padding:30px 30px; margin-left:35px; font-size: 50px;">
+                     <a href="https://tinyurl.com/mujj6pm7" style="color:white;">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    </div>
+
+                    <div class="col-5 mt-3" style="background: transparent; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 20px; padding:30px 30px; font-size: 50px;">
+                    <a href="mailto:desolomon07@gmail.com" style="color:white;">
+                        <i class="fas fa-envelope"></i>
+                    </a> 
+                    </div>
+
+                    <div class="col-5 mt-3" style="background: transparent; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 20px; padding:30px 30px; margin-left:35px; font-size: 50px;">
+                      <a href="https://tinyurl.com/2uet5f7t" style="color:white;">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    </div>
+                </div>
+                </div>
+
+               <div class="my-5">
+
+                <div class="custom-container">
+                <div class="scrolling-icons">
+                    <div class="scrolling-content">
+                    <img src="img/HTML5_logo_and_wordmark.svg-removebg-preview.png" alt="">
+                    <img src="img/images__50_-removebg-preview.png" alt="">
+                    <img src="img/JavaScript-Logo-removebg-preview.png" alt="">
+                    <img src="img/PHP-logo.svg-removebg-preview.png" alt="">
+                    <img src="img/SQL-removebg-preview.png" alt="">
+                    <img src="img/images__3_-removebg-preview.png" alt="">
+
+                    <!--duplicate-->
+                    <img src="img/HTML5_logo_and_wordmark.svg-removebg-preview.png" alt="">
+                    <img src="img/images__50_-removebg-preview.png" alt="">
+                    <img src="img/JavaScript-Logo-removebg-preview.png" alt="">
+                    <img src="img/PHP-logo.svg-removebg-preview.png" alt="">
+                    <img src="img/SQL-removebg-preview.png" alt="">
+                    <img src="img/images__3_-removebg-preview.png" alt="">
+                </div>
+                </div>
+                <div class="text-section">
+                    <p class="section-title">Currently Using</p>
+                    <p class="tech-title">Tech i <i class="fas fa-heart" style="color: red;"></i></p>
+                </div>
+
+                </div>
+               </div>
+
+               <div class="experience-container mb-1">
+                <p class="section-title mb-4">6 Years of</p>
+                <h2 class="main-title">EXPERIENCE</h2>
+
+                <!--Position 1-->
+                <div class="mb-5">
+                    <p class="date">2019 - Present</p>
+                    <h3 class="position-title mb-1">Web Developer</h3>
+                    <p class="company">Delight CodeLabs</p>
+                </div>
+
+                 <!--Position 2-->
+                 <div class="mb-5">
+                    <p class="text-muted date">2023 - 2023</p>
+                    <h3 class="position-title position-strike mb-1">Web and Mobile Development</h3>
+                    <p class="company">The Spark Foundation</p>
+                </div>
+
+                 <!--Position 3-->
+                 <div class="mb-5">
+                    <p class="text-muted date">2022 - 2022</p>
+                    <h3 class="position-title position-strike mb-1">Maintenance</h3>
+                    <p class="company">Eko FM - Radio Lagos</p>
+                </div>
+
+               </div>
+
+               <div class="py-5">
+                <div class="row">
+                    <!--Project 1-->
+                    <div class="col-md-6">
+                        <div class="project-card">
+                            <img src="img/Screenshot (115).png" alt="" class="project-img">
+                            <div class="project-info">
+                                <p class="project-meta">PROJECT AT <span class="fw-boid">Delight CodeLabs</span></p>
+                                <h3 class="project-title">E-Commerce Website</h3>
+                                <div class="tech-tags">
+                                    <span>Frontend + Design</span>
+                                    <span>Php</span>
+                                    <span>MySql</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                     <!--Project 2-->
+                     <div class="col-md-6">
+                        <div class="project-card">
+                            <img src="img/Screenshot (169).png" alt="" class="project-img">
+                            <div class="project-info">
+                                <p class="project-meta">PROJECT AT <span class="fw-boid">Delight CodeLabs</span></p>
+                                <h3 class="project-title">E-library website</h3>
+                                <div class="tech-tags">
+                                    <span>Frontend + Design</span>
+                                    <span>Php</span>
+                                    <span>MySql</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                     <!--Project 3-->
+                     <div class="col-md-6">
+                        <div class="project-card">
+                            <img src="img/Screenshot (14).png" alt="" class="project-img">
+                            <div class="project-info">
+                                <p class="project-meta">PROJECT AT <span class="fw-boid">Delight CodeLabs</span></p>
+                                <h3 class="project-title">Social website</h3>
+                                <div class="tech-tags">
+                                    <span>Frontend + Design</span>
+                                    <span>Php</span>
+                                    <span>MySql</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+               </div>
+            </div>
+        </div>
+
+        <div class="no-access" style="color: white;">
+           This website is not accessible on laptops or larger screens. <br> Please visit a mobile device.
+        </div>
+       
+       
+            <script>
+                // JavaScript for toggling light and dark modes
+                const sunIcon = document.getElementById('toggle-sun');
+                const moonIcon = document.getElementById('toggle-moon');
+                const body = document.body;
+        
+                // Event listener for sun icon (light mode)
+                sunIcon.addEventListener('click', () => {
+                    body.classList.add('light-mode');
+                });
+        
+                // Event listener for moon icon (dark mode)
+                moonIcon.addEventListener('click', () => {
+                    body.classList.remove('light-mode');
+                });
+            </script>
+            
+    <script src="asset/all.min.js"></script>
+    <script src="asset/bootstrap.min.js"></script>
+</body>
+</html>
